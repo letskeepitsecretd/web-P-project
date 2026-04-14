@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hackathon Event Tracker - Track and manage hackathons, tech events, and workshops with full CRUD operations.">
+    <title>Hackathon Event Tracker</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/items.js"></script>
+    <script src="js/itemOperations.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="app-header">
+        <h1><i class="fas fa-rocket"></i> Hackathon Event Tracker</h1>
+        <p>Track hackathons, tech events &amp; workshops — all in one place</p>
+    </header>
+
+    <div class="container">
+
+        <!-- FORM CARD -->
+        <div class="form-card">
+            <h2><i class="fas fa-plus-circle"></i> Add / Edit Event</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="id">Event ID</label>
+                    <input type="number" id="id" placeholder="e.g. 101">
+                </div>
+                <div class="form-group">
+                    <label for="eventName">Event Name</label>
+                    <input type="text" id="eventName" placeholder="e.g. HackMIT 2026">
+                </div>
+                <div class="form-group">
+                    <label for="organizer">Organizer</label>
+                    <input type="text" id="organizer" placeholder="e.g. Google, MIT">
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Event Date</label>
+                    <input type="date" id="eventDate">
+                </div>
+                <div class="form-group">
+                    <label for="mode">Mode</label>
+                    <select id="mode">
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="teamSize">Team Size</label>
+                    <input type="number" id="teamSize" placeholder="e.g. 4">
+                </div>
+                <div class="form-group">
+                    <label for="prizePool">Prize Pool</label>
+                    <input type="text" id="prizePool" placeholder="e.g. ₹50,000">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" id="email" placeholder="e.g. user@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="e.g. 9876543210">
+                </div>
+
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="btn-row">
+                <button class="btn btn-primary" id="add"><i class="fas fa-plus"></i> Add</button>
+
+                <button class="btn btn-info" id="search"><i class="fas fa-search"></i> Search</button>
+                <button class="btn btn-warning" id="update"><i class="fas fa-pen"></i> Update</button>
+                <button class="btn btn-secondary" id="sort"><i class="fas fa-sort-numeric-down"></i> Sort</button>
+                <button class="btn btn-success" id="save"><i class="fas fa-save"></i> Save</button>
+                <button class="btn btn-success" id="load"><i class="fas fa-download"></i> Load</button>
+                <button class="btn btn-secondary" id="loadServer"><i class="fas fa-cloud-download-alt"></i> Server</button>
+            </div>
+        </div>
+
+        <!-- SEARCH BOX -->
+        <div id="searchbox" class="search-card">
+            <div class="form-group">
+                <label for="searchkey">Search By</label>
+                <select id="searchkey">
+                    <option value="eventName">Event Name</option>
+                    <option value="organizer">Organizer</option>
+                    <option value="mode">Mode</option>
+                    <option value="prizePool">Prize Pool</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="searchvalue">Value</label>
+                <input type="text" id="searchvalue" placeholder="Type here...">
+            </div>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <div class="stat-chip total">
+                <i class="fas fa-database"></i>
+                <span id="total">Total: 0</span>
+            </div>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Event Name</th>
+                        <th>Organizer</th>
+                        <th>Date</th>
+                        <th>Mode</th>
+                        <th>Team Size</th>
+                        <th>Prize Pool</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast"></div>
+
+</body>
+</html>
